@@ -31,9 +31,9 @@ done = False
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
-# Starting x position of the rectangle
+# Starting x position of the square
 # Note how this is outside the main while loop.
-rect_x = 50
+square_x = 50
 
 # -------- Main Program Loop -----------
 while not done:
@@ -54,8 +54,8 @@ while not done:
     screen.fill(BLACK)
 
     # --- Drawing code should go here
-    pygame.draw.rect(screen, WHITE, [rect_x, 50, 50, 50])
-    rect_x = rect_x + 1
+    pygame.draw.rect(screen, WHITE, [square_x, 50, 50, 50])
+    square_x = square_x + 1
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
