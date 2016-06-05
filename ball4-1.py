@@ -65,14 +65,6 @@ while not done:
     rect_x = rect_x + rect_change_x
     rect_y = rect_y + rect_change_y
 
-    # Bounce the rectangle if needed
-
-    if rect_y > 450 or rect_y < 0:
-        rect_change_y = rect_change_y * -1
-
-    if rect_x > 650 or rect_x < 0:
-        rect_change_x = rect_change_x * -1
-
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
 

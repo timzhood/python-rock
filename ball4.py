@@ -36,10 +36,6 @@ clock = pygame.time.Clock()
 rect_x = 50
 rect_y = 50
 
-# Speed and direction of rectangle
-rect_change_x = 5
-rect_change_y = 5
-
 # -------- Main Program Loop -----------
 while not done:
     # --- Main event loop
@@ -62,8 +58,8 @@ while not done:
     pygame.draw.rect(screen, WHITE, [rect_x, rect_y, 50, 50])
 
     # Move the x,y point at which the rectangle is drawn
-    rect_x += rect_change_x
-    rect_y += rect_change_y
+    rect_x = rect_x + 5
+    rect_y = rect_y + 5
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()

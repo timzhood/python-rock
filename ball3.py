@@ -55,7 +55,7 @@ while not done:
 
     # --- Drawing code should go here
     pygame.draw.rect(screen, WHITE, [rect_x, 50, 50, 50])
-    rect_x += 5
+    rect_x = rect_x + 1
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
