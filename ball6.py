@@ -31,14 +31,14 @@ done = False
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
-# Starting x position of the rectangle
+# Starting x,y position of the square
 # Note how this is outside the main while loop.
-rect_x = 50
-rect_y = 50
+square_x = 50
+square_y = 50
 
-# Speed and direction of rectangle
-rect_change_x = 5
-rect_change_y = 5
+# start going right and down
+change_x = 5
+change_y = 5
 
 # -------- Main Program Loop -----------
 while not done:
@@ -59,20 +59,36 @@ while not done:
     screen.fill(BLACK)
 
     # --- Drawing code should go here
-    pygame.draw.rect(screen, WHITE, [rect_x, rect_y, 50, 50])
+    pygame.draw.rect(screen, WHITE, [square_x, square_y, 50, 50])
 
     # Draw a red rectangle inside the white one
-    pygame.draw.rect(screen, RED, [rect_x + 10, rect_y + 10, 30, 30])
+    pygame.draw.rect(screen, RED, [square_x + 10, square_y + 10, 30, 30])
 
-    # Move the x,y point at which the rectangle is drawn
-    rect_x += rect_change_x
-    rect_y += rect_change_y
+    # Move the x,y point at which the square is drawn
+    square_x = square_x + change_x
+    square_y = square_y + change_y
 
     # Bounce the rectangle if needed
-    if rect_y > 450 or rect_y < 0:
-        rect_change_y = rect_change_y * -1
-    if rect_x > 650 or rect_x < 0:
-        rect_change_x = rect_change_x * -1
+
+    # when hit bottom edge
+    if square_y > 450:
+        # change direction, go up
+        change_y = -5
+
+    # when hit top edge
+    if square_y < 0:
+        # change direction, go down
+        change_y = 5
+
+    # when hit right edge
+    if square_x > 650:
+        # change direction, go left
+        change_x = -5
+
+    # when hit left edge
+    if square_x < 0:
+        # change direction, go right
+        change_x = 5
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()

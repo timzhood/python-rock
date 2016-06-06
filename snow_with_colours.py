@@ -57,10 +57,12 @@ while not done:
     for i in range(len(snow_list)):
 
         # Draw the snow flake
-        pygame.draw.circle(screen, snow_colours[i], snow_list[i], 2)
+        size = 2
+        pygame.draw.circle(screen, snow_colours[i], snow_list[i], size)
 
         # Move the snow flake down one pixel
-        snow_list[i][1] += 1
+        speed = 1
+        snow_list[i][1] += speed
 
         # If the snow flake has moved off the bottom of the screen
         if snow_list[i][1] > 400:

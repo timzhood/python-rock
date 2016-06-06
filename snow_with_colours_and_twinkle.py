@@ -17,6 +17,8 @@ pygame.init()
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
 
 # Set the height and width of the screen
 SIZE = (400, 400)
@@ -26,6 +28,7 @@ pygame.display.set_caption("Snow Animation")
 
 # Create an empty array
 snow_list = []
+snow_colours = []
 
 # Loop 50 times and add a snow flake
 for i in range(50):
@@ -33,6 +36,9 @@ for i in range(50):
     x = random.randrange(0, 400)
     y = random.randrange(0, 400)
     snow_list.append([x, y])
+    # random colour
+    colour = random.choice([WHITE, GREEN, RED])
+    snow_colours.append(colour)
 
 clock = pygame.time.Clock()
 
@@ -52,7 +58,7 @@ while not done:
 
         # Draw the snow flake
         size = random.randint(0, 2)
-        pygame.draw.circle(screen, WHITE, snow_list[i], size)
+        pygame.draw.circle(screen, snow_colours[i], snow_list[i], size)
 
         # Move the snow flake down one pixel
         snow_list[i][1] += 1
